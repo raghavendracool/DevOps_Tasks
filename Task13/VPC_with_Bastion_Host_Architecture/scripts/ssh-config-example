@@ -1,0 +1,12 @@
+Host task13-bastion
+    HostName <BASTION_PUBLIC_IP>
+    User ubuntu
+    IdentityFile ~/.ssh/task13-key.pem
+    IdentitiesOnly yes
+
+Host task13-private
+    HostName <PRIVATE_EC2_IP>
+    User ubuntu
+    IdentityFile ~/.ssh/task13-key.pem
+    IdentitiesOnly yes
+    ProxyJump task13-bastion

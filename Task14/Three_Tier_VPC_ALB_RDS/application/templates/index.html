@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 14 Three-Tier Application</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">AWS DEVOPS PROJECT 14</p>
+      <h1>Three-Tier Application</h1>
+      <p>Served through an Application Load Balancer from a private EC2 instance.</p>
+    </section>
+
+    <section class="card">
+      <h2>Application Server</h2>
+      <p><strong>Instance:</strong> {{ instance_name }}</p>
+      <p><strong>Hostname:</strong> {{ hostname }}</p>
+      <a href="/api/db">Test Database Connectivity</a>
+    </section>
+
+    <section class="card">
+      <h2>Create Visit Record</h2>
+      <form method="post" action="/visit">
+        <input name="visitor" placeholder="Your name" required>
+        <button type="submit">Save to RDS</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[Unit]
+Description=Task 11 Flask RDS Application
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/Task11_Web_Application_with_Amazon_RDS/app
+EnvironmentFile=/etc/task11-rds-app.env
+ExecStart=/home/ubuntu/Task11_Web_Application_with_Amazon_RDS/app/.venv/bin/gunicorn \
+  --workers 3 \
+  --bind 127.0.0.1:8000 \
+  --timeout 60 \
+  app:app
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

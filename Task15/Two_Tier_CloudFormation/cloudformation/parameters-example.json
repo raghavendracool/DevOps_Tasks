@@ -1,0 +1,12 @@
+{
+  "Parameters": {
+    "KeyName": "replace-with-existing-key-pair",
+    "AdminCidr": "203.0.113.10/32",
+    "VpcCidr": "10.0.0.0/16",
+    "PublicSubnetACidr": "10.0.1.0/24",
+    "PublicSubnetBCidr": "10.0.2.0/24",
+    "PrivateSubnetCidr": "10.0.11.0/24",
+    "BastionInstanceType": "t3.micro",
+    "WebInstanceType": "t3.micro"
+  }
+}

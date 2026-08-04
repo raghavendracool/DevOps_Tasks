@@ -1,0 +1,52 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadIAMComplianceData",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GenerateCredentialReport",
+        "iam:GetCredentialReport",
+        "iam:GetAccountPasswordPolicy",
+        "iam:ListUsers",
+        "iam:ListAccessKeys"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadRegionalComplianceData",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeSecurityGroups",
+        "cloudtrail:DescribeTrails",
+        "config:DescribeConfigurationRecorders",
+        "config:DescribeConfigurationRecorderStatus",
+        "s3:GetAccountPublicAccessBlock"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "PublishCustomMetrics",
+      "Effect": "Allow",
+      "Action": "cloudwatch:PutMetricData",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "cloudwatch:namespace": "SecOps/Compliance"
+        }
+      }
+    },
+    {
+      "Sid": "PublishAlerts",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:<REGION>:<ACCOUNT_ID>:task12-secops-alerts"
+    },
+    {
+      "Sid": "WriteReports",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::<REPORT_BUCKET>/compliance-reports/*"
+    }
+  ]
+}

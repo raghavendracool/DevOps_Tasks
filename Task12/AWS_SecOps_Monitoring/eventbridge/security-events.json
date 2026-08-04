@@ -1,0 +1,26 @@
+{
+  "source": [
+    "aws.signin",
+    "aws.iam",
+    "aws.ec2",
+    "aws.cloudtrail",
+    "aws.kms"
+  ],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail": {
+    "eventName": [
+      "ConsoleLogin",
+      "CreatePolicy",
+      "DeletePolicy",
+      "AttachUserPolicy",
+      "DetachUserPolicy",
+      "AuthorizeSecurityGroupIngress",
+      "RevokeSecurityGroupIngress",
+      "StopLogging",
+      "DeleteTrail",
+      "UpdateTrail",
+      "DisableKey",
+      "ScheduleKeyDeletion"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublishSecurityAlerts",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:<REGION>:<ACCOUNT_ID>:task10-security-alerts"
+    },
+    {
+      "Sid": "ReadSlackWebhookSecret",
+      "Effect": "Allow",
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "arn:aws:secretsmanager:<REGION>:<ACCOUNT_ID>:secret:task10/slack-webhook-url-*"
+    },
+    {
+      "Sid": "ArchiveSecurityEvents",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::<ARCHIVE_BUCKET_NAME>/security-events/*"
+    }
+  ]
+}

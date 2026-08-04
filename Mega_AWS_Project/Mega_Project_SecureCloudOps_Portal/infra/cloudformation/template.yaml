@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: SecureCloudOps supporting S3 bucket and SNS topic example.
+Resources:
+  FilesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+  AlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: securecloudops-alerts
+Outputs:
+  BucketName:
+    Value: !Ref FilesBucket
+  TopicArn:
+    Value: !Ref AlertsTopic

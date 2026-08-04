@@ -1,0 +1,17 @@
+[Unit]
+Description=Task 8 Personal Cloud Drive
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/Task8_Personal_Cloud_Drive_Application/app
+EnvironmentFile=/etc/task8-cloud-drive.env
+ExecStart=/home/ubuntu/Task8_Personal_Cloud_Drive_Application/app/.venv/bin/gunicorn \
+  --workers 3 \
+  --bind 127.0.0.1:8000 \
+  app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

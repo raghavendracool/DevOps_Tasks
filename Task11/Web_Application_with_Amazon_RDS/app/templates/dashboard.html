@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <p class="eyebrow">DATABASE CONNECTED</p>
+  <h1>Welcome, {{ username }}</h1>
+  <p>Your login was validated using the users table in Amazon RDS MySQL.</p>
+  <div class="status">Application → RDS connectivity is working.</div>
+  <a class="button" href="{{ url_for('logout') }}">Logout</a>
+</section>
+{% endblock %}

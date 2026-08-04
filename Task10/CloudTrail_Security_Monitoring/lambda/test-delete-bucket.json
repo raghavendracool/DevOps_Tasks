@@ -1,0 +1,28 @@
+{
+  "version": "0",
+  "id": "test-delete-bucket",
+  "detail-type": "AWS API Call via CloudTrail",
+  "source": "aws.s3",
+  "account": "123456789012",
+  "time": "2026-08-04T15:20:00Z",
+  "region": "us-east-1",
+  "detail": {
+    "eventSource": "s3.amazonaws.com",
+    "eventName": "DeleteBucket",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "203.0.113.10",
+    "userAgent": "aws-cli/2.x",
+    "eventTime": "2026-08-04T15:20:00Z",
+    "eventID": "event-delete-bucket",
+    "requestID": "request-delete-bucket",
+    "recipientAccountId": "123456789012",
+    "userIdentity": {
+      "type": "IAMUser",
+      "arn": "arn:aws:iam::123456789012:user/admin"
+    },
+    "requestParameters": {
+      "bucketName": "task10-test-bucket"
+    },
+    "responseElements": null
+  }
+}

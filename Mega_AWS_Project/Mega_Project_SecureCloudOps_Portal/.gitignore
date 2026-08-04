@@ -1,0 +1,9 @@
+.env
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+__pycache__/
+node_modules/
+dist/
+.pytest_cache/

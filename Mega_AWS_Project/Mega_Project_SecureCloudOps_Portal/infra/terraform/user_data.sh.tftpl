@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euxo pipefail
+apt-get update -y
+apt-get install -y docker.io docker-compose-plugin git
+systemctl enable --now docker
+mkdir -p /opt/securecloudops
+cd /opt/securecloudops
+git clone https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY>.git app
+cd app
+cat > .env <<EOF
+DATABASE_URL=mysql+pymysql://${db_user}:${db_password}@${db_host}:3306/securecloudops
+AWS_REGION=${region}
+S3_BUCKET_NAME=${bucket}
+JWT_SECRET=replace-from-secrets-manager
+EOF
+docker compose up -d --build

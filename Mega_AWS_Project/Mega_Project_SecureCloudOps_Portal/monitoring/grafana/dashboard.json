@@ -1,0 +1,116 @@
+{
+  "title": "SecureCloudOps Operations Dashboard",
+  "uid": "securecloudops",
+  "schemaVersion": 39,
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Compliance Score",
+      "targets": [
+        {
+          "namespace": "SecureCloudOps",
+          "metricName": "ComplianceScore",
+          "statistics": [
+            "Average"
+          ],
+          "period": "300",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Security Events",
+      "targets": [
+        {
+          "namespace": "SecureCloudOps",
+          "metricName": "SecurityEvents",
+          "statistics": [
+            "Sum"
+          ],
+          "period": "300",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Classified Files",
+      "targets": [
+        {
+          "namespace": "SecureCloudOps",
+          "metricName": "FileClassificationSuccess",
+          "statistics": [
+            "Sum"
+          ],
+          "period": "300",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "ALB Request Count",
+      "targets": [
+        {
+          "namespace": "AWS/ApplicationELB",
+          "metricName": "RequestCount",
+          "statistics": [
+            "Sum"
+          ],
+          "period": "300",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Lambda Errors",
+      "targets": [
+        {
+          "namespace": "AWS/Lambda",
+          "metricName": "Errors",
+          "statistics": [
+            "Sum"
+          ],
+          "period": "300",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      }
+    }
+  ]
+}

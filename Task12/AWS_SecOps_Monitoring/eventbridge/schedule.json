@@ -1,0 +1,6 @@
+{
+  "Name": "task12-compliance-schedule",
+  "ScheduleExpression": "rate(6 hours)",
+  "State": "ENABLED",
+  "Target": "task12-secops-compliance-engine"
+}

@@ -1,0 +1,10 @@
+{
+  "source": ["aws.s3"],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "region": ["us-east-1"],
+  "detail": {
+    "eventSource": ["s3.amazonaws.com"],
+    "eventName": ["DeleteBucket"],
+    "awsRegion": ["us-east-1"]
+  }
+}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card auth">
+  <p class="eyebrow">AWS DEVOPS PROJECT 11</p>
+  <h1>Application Login</h1>
+  <p>Authenticate using data stored in Amazon RDS MySQL.</p>
+  <form method="post">
+    <input name="username" placeholder="Username" required>
+    <input name="password" type="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <a href="{{ url_for('register') }}">Create an account</a>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{
+  "version": "0",
+  "id": "task9-test-event-id",
+  "detail-type": "AWS API Call via CloudTrail",
+  "source": "aws.iam",
+  "account": "123456789012",
+  "time": "2026-08-04T15:00:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "eventVersion": "1.10",
+    "userIdentity": {
+      "type": "IAMUser",
+      "principalId": "AIDAEXAMPLE",
+      "arn": "arn:aws:iam::123456789012:user/bad-actor-user",
+      "accountId": "123456789012",
+      "accessKeyId": "AKIAEXAMPLE",
+      "userName": "bad-actor-user"
+    },
+    "eventTime": "2026-08-04T15:00:00Z",
+    "eventSource": "iam.amazonaws.com",
+    "eventName": "CreateUser",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "203.0.113.25",
+    "userAgent": "aws-cli/2.x",
+    "requestParameters": {
+      "userName": "unauthorized-test-user"
+    },
+    "responseElements": {
+      "user": {
+        "path": "/",
+        "userName": "unauthorized-test-user",
+        "userId": "AIDAEXAMPLENEWUSER",
+        "arn": "arn:aws:iam::123456789012:user/unauthorized-test-user",
+        "createDate": "Aug 4, 2026 3:00:00 PM"
+      }
+    },
+    "requestID": "example-request-id",
+    "eventID": "example-cloudtrail-event-id",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "123456789012"
+  }
+}
