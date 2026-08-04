@@ -1,0 +1,85 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Task 7 AWS Compliance Monitoring Project
+
+Parameters:
+  NotificationEmail:
+    Type: String
+  RequiredTags:
+    Type: String
+    Default: Environment,Owner,Project,CostCenter
+  ScanRegions:
+    Type: String
+    Default: ap-south-1
+  MaximumAccessKeyAgeDays:
+    Type: Number
+    Default: 2
+
+Resources:
+  ComplianceTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: task7-compliance-alerts
+
+  ComplianceSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Protocol: email
+      Endpoint: !Ref NotificationEmail
+      TopicArn: !Ref ComplianceTopic
+
+  ComplianceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: task7-compliance-lambda-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: task7-compliance-read-policy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ec2:DescribeInstances
+                  - ec2:DescribeVolumes
+                  - iam:ListUsers
+                  - iam:ListAccessKeys
+                Resource: "*"
+              - Effect: Allow
+                Action: sns:Publish
+                Resource: !Ref ComplianceTopic
+
+  ComplianceFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: task7-compliance-monitor
+      Runtime: python3.12
+      Handler: lambda_function.lambda_handler
+      Role: !GetAtt ComplianceRole.Arn
+      Timeout: 30
+      MemorySize: 256
+      Environment:
+        Variables:
+          REQUIRED_TAGS: !Ref RequiredTags
+          SCAN_REGIONS: !Ref ScanRegions
+          MAX_ACCESS_KEY_AGE_DAYS: !Ref MaximumAccessKeyAgeDays
+          SNS_TOPIC_ARN: !Ref ComplianceTopic
+          NOTIFY_ON_COMPLIANT: "false"
+      Code:
+        ZipFile: |
+          # Replace this inline placeholder with lambda/lambda_function.py.
+          def lambda_handler(event, context):
+              return {"message": "Deploy the supplied Lambda source code"}
+
+Outputs:
+  TopicArn:
+    Value: !Ref ComplianceTopic
+  FunctionName:
+    Value: !Ref ComplianceFunction

@@ -1,0 +1,8 @@
+{
+  "source": "manual-test",
+  "detail-type": "Task7 Compliance Scan",
+  "detail": {
+    "requested_by": "Raghav",
+    "purpose": "Manual validation"
+  }
+}

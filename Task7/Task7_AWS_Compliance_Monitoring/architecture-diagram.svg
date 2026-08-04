@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs>
+  <style>
+    .title{font:700 42px Arial;fill:#fff}.sub{font:22px Arial;fill:#dbeafe}
+    .h{font:700 25px Arial;fill:#0f172a}.t{font:19px Arial;fill:#1f2937}
+    .small{font:16px Arial;fill:#334155}.box{fill:#fff;stroke:#94a3b8;stroke-width:2}
+    .aws{fill:#fff7ed;stroke:#f97316;stroke-width:3}.green{fill:#f0fdf4;stroke:#22c55e;stroke-width:3}
+    .purple{fill:#faf5ff;stroke:#9333ea;stroke-width:3}.pink{fill:#fdf2f8;stroke:#db2777;stroke-width:3}
+    .blue{fill:#eff6ff;stroke:#2563eb;stroke-width:3}.red{fill:#fef2f2;stroke:#dc2626;stroke-width:3}
+    .arrow{stroke:#334155;stroke-width:3;fill:none;marker-end:url(#m)}
+  </style>
+  <marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#f8fafc"/>
+<rect width="1600" height="105" fill="#0f2744"/>
+<text x="45" y="55" class="title">Task 7 — AWS Compliance Monitoring</text>
+<text x="45" y="88" class="sub">Scheduled Lambda checks EC2 tags, EBS encryption and IAM access-key rotation</text>
+
+<rect x="55" y="145" rx="18" ry="18" width="260" height="130" class="blue"/>
+<text x="95" y="195" class="h">EventBridge</text>
+<text x="83" y="230" class="t">Scheduler</text>
+<text x="80" y="257" class="small">rate(1 hour)</text>
+
+<rect x="420" y="130" rx="18" ry="18" width="350" height="175" class="aws"/>
+<text x="510" y="183" class="h">AWS Lambda</text>
+<text x="475" y="218" class="t">ComplianceMonitor</text>
+<text x="480" y="252" class="small">Python • Timeout: 30 sec</text>
+<text x="486" y="278" class="small">CloudWatch structured logs</text>
+
+<path d="M315 210 L420 210" class="arrow"/>
+
+<rect x="860" y="125" rx="18" ry="18" width="300" height="160" class="green"/>
+<text x="930" y="175" class="h">Amazon EC2</text>
+<text x="900" y="213" class="t">Required Tags</text>
+<text x="895" y="245" class="small">Name • Environment • Owner</text>
+
+<rect x="860" y="325" rx="18" ry="18" width="300" height="160" class="purple"/>
+<text x="925" y="375" class="h">Amazon EBS</text>
+<text x="902" y="413" class="t">Encryption Check</text>
+<text x="925" y="448" class="small">Encrypted = true</text>
+
+<rect x="860" y="525" rx="18" ry="18" width="300" height="160" class="pink"/>
+<text x="960" y="575" class="h">AWS IAM</text>
+<text x="895" y="613" class="t">Credential Report</text>
+<text x="890" y="648" class="small">Active key age ≤ 2 days</text>
+
+<path d="M770 190 L860 190" class="arrow"/>
+<path d="M770 215 C820 215 810 405 860 405" class="arrow"/>
+<path d="M770 240 C820 240 810 605 860 605" class="arrow"/>
+
+<rect x="1240" y="170" rx="18" ry="18" width="300" height="180" class="red"/>
+<text x="1300" y="220" class="h">Non-Compliance</text>
+<text x="1275" y="258" class="t">Finding generated</text>
+<text x="1275" y="291" class="small">Resource • Region • Reason</text>
+<text x="1275" y="320" class="small">Severity • Timestamp</text>
+
+<rect x="1240" y="430" rx="18" ry="18" width="300" height="160" class="blue"/>
+<text x="1290" y="480" class="h">CloudWatch Logs</text>
+<text x="1284" y="520" class="t">Audit and troubleshooting</text>
+<text x="1295" y="552" class="small">Metrics and alarms</text>
+
+<rect x="1240" y="665" rx="18" ry="18" width="300" height="160" class="pink"/>
+<text x="1350" y="715" class="h">SNS</text>
+<text x="1280" y="755" class="t">Optional notification</text>
+<text x="1280" y="788" class="small">Email • Chat integration</text>
+
+<path d="M1160 205 L1240 240" class="arrow"/>
+<path d="M1160 405 L1240 275" class="arrow"/>
+<path d="M1160 605 L1240 305" class="arrow"/>
+<path d="M770 270 C965 300 1070 510 1240 510" class="arrow"/>
+<path d="M1390 350 L1390 430" class="arrow"/>
+<path d="M1390 590 L1390 665" class="arrow"/>
+
+<rect x="55" y="735" rx="18" ry="18" width="1080" height="205" class="box"/>
+<text x="90" y="780" class="h">Compliance Rules</text>
+<text x="90" y="825" class="t">1. EC2 instances must contain all required tags.</text>
+<text x="90" y="862" class="t">2. Every EBS volume must have encryption enabled.</text>
+<text x="90" y="899" class="t">3. Active IAM access keys must be rotated within two days.</text>
+<text x="90" y="928" class="small">Production improvement: AWS Config + Security Hub + Organizations for large multi-account estates.</text>
+</svg>

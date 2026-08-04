@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">STREAMBOX</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div>
+        <p class="label">AWS DEVOPS PROJECT 05</p>
+        <h1>Stream videos directly from Amazon S3</h1>
+        <p>Website served from Ubuntu EC2 using NGINX.</p>
+        <a class="button" href="#movies">Browse Movies</a>
+      </div>
+    </section>
+
+    <section id="movies" class="section">
+      <h2>Featured Videos</h2>
+      <div id="movieGrid" class="movie-grid"></div>
+    </section>
+
+    <section id="about" class="section info">
+      <h2>Architecture</h2>
+      <p>NGINX serves this page from EC2. Video playback requests go directly to Amazon S3.</p>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeButton" class="close">×</button>
+      <h3 id="videoTitle">Video</h3>
+      <video id="videoPlayer" controls preload="metadata"></video>
+    </div>
+  </div>
+
+  <script src="./config.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

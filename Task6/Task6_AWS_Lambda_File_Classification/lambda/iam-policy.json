@@ -1,0 +1,32 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadIncomingObjects",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::<BUCKET_NAME>/incoming/*"
+    },
+    {
+      "Sid": "WriteClassifiedObjects",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::<BUCKET_NAME>/Finance/*",
+        "arn:aws:s3:::<BUCKET_NAME>/Non-Finance/*"
+      ]
+    },
+    {
+      "Sid": "DeleteIncomingObjects",
+      "Effect": "Allow",
+      "Action": [
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::<BUCKET_NAME>/incoming/*"
+    }
+  ]
+}

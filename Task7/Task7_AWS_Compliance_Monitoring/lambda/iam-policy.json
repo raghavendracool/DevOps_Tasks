@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadEC2AndEBSComplianceData",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeVolumes"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadIAMUserAndAccessKeyMetadata",
+      "Effect": "Allow",
+      "Action": [
+        "iam:ListUsers",
+        "iam:ListAccessKeys"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "PublishComplianceAlerts",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:<REGION>:<ACCOUNT_ID>:task7-compliance-alerts"
+    }
+  ]
+}

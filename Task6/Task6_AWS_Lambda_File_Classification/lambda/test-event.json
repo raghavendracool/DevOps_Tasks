@@ -1,0 +1,16 @@
+{
+  "Records": [
+    {
+      "eventSource": "aws:s3",
+      "eventName": "ObjectCreated:Put",
+      "s3": {
+        "bucket": {
+          "name": "<BUCKET_NAME>"
+        },
+        "object": {
+          "key": "incoming/fin_budget.txt"
+        }
+      }
+    }
+  ]
+}
