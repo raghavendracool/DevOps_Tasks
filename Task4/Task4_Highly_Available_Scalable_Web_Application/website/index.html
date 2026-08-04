@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Highly Available Web Application</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">AWS DEVOPS PROJECT 04</p>
+      <h1>Highly Available & Scalable Web Application</h1>
+      <p>Served through an Application Load Balancer and managed by an Auto Scaling Group.</p>
+    </section>
+    <section class="card">
+      <h2>Server Information</h2>
+      <div class="grid">
+        <div><span>Instance ID</span><strong id="instanceId">Static / Loading</strong></div>
+        <div><span>Availability Zone</span><strong id="availabilityZone">Static / Loading</strong></div>
+        <div><span>Private IP</span><strong id="privateIp">Static / Loading</strong></div>
+        <div><span>Hostname</span><strong id="hostname">Static Website</strong></div>
+      </div>
+      <p id="status">Application is healthy.</p>
+    </section>
+  </main>
+  <script src="./server-info.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
